@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect,get_object_or_404
-from django.views.generic import (ListView,CreateView,UpdateView)
+from django.views.generic import (ListView,CreateView,UpdateView,DeleteView)
 from .models import Card
 from django.urls import reverse_lazy
 from .forms import CardCheckForm
@@ -18,6 +18,9 @@ class CardCreateView(CreateView):
 class CardUpdateView(CardCreateView,UpdateView):
     success_url = reverse_lazy('card-list')
 
+class CardDeleteView(DeleteView):
+    model = Card
+    success_url = reverse_lazy('card-list')
 
 class BoxView(CardListView):
     template_name = "cards/box.html"
