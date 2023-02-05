@@ -1,9 +1,10 @@
+{% extends "cards/base.html" %}
+{% block content %}
 <form id="delete-form" method="post" >
     {% csrf_token %}
-</form>
 
-<script>
-     confirm("Are you sure you want to continue")
-    const form = document.getElementById("delete-form")
-    form.submit()
-</script>
+    <div>Are You Sure To Delete Card No <strong>{{ object.id }}</strong> </div>
+    <input type="submit" value="Confirm" role="button"/>
+</form>
+{% endblock content %}
+
